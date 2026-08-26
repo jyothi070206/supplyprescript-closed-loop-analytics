@@ -37,5 +37,7 @@ case, distinct from the agentic-AI focus of Project 1.
   actions: air freight, secondary supplier, delayed launch)
 - **Day 2**: Scaffolded Next.js dashboard frontend (TypeScript + Tailwind, 
   App Router) with a placeholder for prescription cards. Set up FastAPI 
-  backend skeleton with a health-check endpoint, laying groundwork for 
-  the Write-Back Architecture planned for Week 2.
+  backend skeleton with a health-check endpoint, confirmed running 
+  locally. Selected PostgreSQL (via Neon, free tier) as the database 
+  for the Write-Back Architecture in Week 2, per the project brief's 
+  explicit "PostgreSQL or Snowflake" allowance.
