@@ -40,4 +40,8 @@ case, distinct from the agentic-AI focus of Project 1.
   backend skeleton with a health-check endpoint, confirmed running 
   locally. Selected PostgreSQL (via Neon, free tier) as the database 
   for the Write-Back Architecture in Week 2, per the project brief's 
+<<<<<<< HEAD
   explicit "PostgreSQL or Snowflake" allowance.
+=======
+  explicit "PostgreSQL or Snowflake" allowance.
+>>>>>>> bd207264a914f79f834d6045787b174a215570f3
