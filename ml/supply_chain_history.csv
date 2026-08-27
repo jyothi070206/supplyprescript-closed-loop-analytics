@@ -1,0 +1,501 @@
+shipment_id,supplier,region,category,planned_lead_time_days,distance_km,order_value_usd,is_peak_season,was_delayed,delay_days
+1,SupplierC,North America,Furniture,20,4679,30482,0,0,0
+2,SupplierD,Asia,Electronics,23,2182,34117,1,1,5
+3,SupplierA,Asia,Electronics,8,6126,25164,1,1,17
+4,SupplierC,North America,Furniture,22,7924,33910,0,0,0
+5,SupplierC,Asia,Furniture,6,1433,34496,1,1,6
+6,SupplierD,North America,Electronics,5,4098,46311,0,0,0
+7,SupplierA,Europe,Furniture,19,11925,31371,0,0,0
+8,SupplierA,Asia,Electronics,9,2480,40467,0,1,2
+9,SupplierC,Europe,Furniture,24,10547,19625,1,1,20
+10,SupplierB,North America,Textiles,15,3556,35893,0,0,0
+11,SupplierC,Europe,Textiles,14,9484,12793,0,1,18
+12,SupplierC,Europe,Textiles,6,1291,33007,0,0,0
+13,SupplierC,North America,Textiles,7,10501,27766,1,1,3
+14,SupplierC,Europe,Textiles,27,5890,41532,1,1,9
+15,SupplierD,Europe,Electronics,27,7135,14323,1,0,0
+16,SupplierA,North America,Textiles,16,2755,47799,0,0,0
+17,SupplierD,Europe,Textiles,24,4110,48820,0,1,7
+18,SupplierD,North America,Textiles,9,2107,47408,0,0,0
+19,SupplierD,Europe,Textiles,9,5679,9843,0,1,16
+20,SupplierC,North America,Furniture,10,7073,16210,0,0,0
+21,SupplierB,North America,Electronics,13,1484,18456,0,0,0
+22,SupplierA,Europe,Textiles,6,6276,33367,1,1,3
+23,SupplierB,Europe,Textiles,25,4176,12106,1,1,10
+24,SupplierD,Europe,Textiles,16,3880,39957,1,0,0
+25,SupplierD,Asia,Electronics,7,9211,4472,1,1,14
+26,SupplierB,Asia,Furniture,24,9282,8704,0,0,0
+27,SupplierB,Asia,Electronics,26,1550,5713,0,0,0
+28,SupplierB,North America,Furniture,16,4133,7051,1,0,0
+29,SupplierD,Europe,Textiles,28,6842,12756,0,0,0
+30,SupplierD,North America,Textiles,21,1459,4475,1,0,0
+31,SupplierA,Asia,Electronics,14,6559,38378,0,1,13
+32,SupplierA,Europe,Electronics,28,9384,6255,0,0,0
+33,SupplierD,North America,Furniture,18,6155,16484,0,0,0
+34,SupplierB,Europe,Furniture,27,4973,36503,1,1,14
+35,SupplierB,North America,Electronics,21,3446,10258,1,0,0
+36,SupplierA,Europe,Furniture,22,8225,42747,0,1,18
+37,SupplierD,Asia,Electronics,23,1026,37196,1,0,0
+38,SupplierA,Asia,Furniture,21,3724,47113,0,0,0
+39,SupplierA,Europe,Electronics,18,10945,42194,0,1,5
+40,SupplierC,North America,Electronics,13,2375,10533,0,0,0
+41,SupplierC,Asia,Electronics,12,2263,34581,0,0,0
+42,SupplierC,Asia,Furniture,6,9212,7249,0,1,18
+43,SupplierB,Asia,Furniture,17,6297,21201,1,0,0
+44,SupplierD,Europe,Furniture,29,9708,11686,1,0,0
+45,SupplierD,Europe,Electronics,11,7599,48877,0,0,0
+46,SupplierD,North America,Furniture,13,5609,34007,0,1,9
+47,SupplierD,North America,Furniture,26,7144,2661,1,0,0
+48,SupplierC,North America,Electronics,26,616,46843,1,0,0
+49,SupplierB,Europe,Textiles,15,2933,32137,1,1,15
+50,SupplierB,Europe,Electronics,18,5963,49556,0,0,0
+51,SupplierC,North America,Furniture,8,1083,44828,0,0,0
+52,SupplierB,North America,Electronics,17,9086,12526,0,0,0
+53,SupplierC,Europe,Textiles,6,4288,5374,0,0,0
+54,SupplierD,North America,Electronics,27,11460,27592,0,0,0
+55,SupplierC,Asia,Furniture,9,4667,30982,1,0,0
+56,SupplierD,Europe,Textiles,15,8965,2207,0,0,0
+57,SupplierD,North America,Furniture,10,10705,37433,0,0,0
+58,SupplierA,Europe,Textiles,22,1889,25197,0,0,0
+59,SupplierC,Asia,Textiles,25,8857,35400,0,0,0
+60,SupplierA,Europe,Electronics,14,10259,5083,0,0,0
+61,SupplierC,Europe,Electronics,8,6654,31328,0,0,0
+62,SupplierC,Europe,Furniture,13,5920,48479,0,0,0
+63,SupplierA,Europe,Electronics,10,9420,44891,1,0,0
+64,SupplierA,Asia,Electronics,6,2543,22103,1,1,17
+65,SupplierC,Europe,Textiles,21,4697,41891,0,0,0
+66,SupplierB,Europe,Electronics,9,3996,12754,0,1,20
+67,SupplierD,North America,Textiles,29,1278,36447,1,1,13
+68,SupplierA,Europe,Textiles,10,713,17901,0,0,0
+69,SupplierD,North America,Textiles,16,4262,35004,0,0,0
+70,SupplierB,Asia,Furniture,27,10268,9446,1,1,11
+71,SupplierB,Asia,Furniture,25,11140,39211,0,1,5
+72,SupplierB,Asia,Furniture,14,7231,31301,0,1,13
+73,SupplierA,Asia,Textiles,26,11628,28116,0,1,3
+74,SupplierB,North America,Furniture,25,3617,43323,0,0,0
+75,SupplierA,Europe,Furniture,29,6291,20752,0,1,6
+76,SupplierB,Asia,Electronics,10,9283,34376,1,0,0
+77,SupplierD,Europe,Furniture,12,3220,18669,0,0,0
+78,SupplierD,North America,Furniture,6,9405,34916,0,0,0
+79,SupplierC,North America,Textiles,16,9627,15395,1,1,4
+80,SupplierD,North America,Textiles,17,6547,22421,0,0,0
+81,SupplierC,Asia,Textiles,29,8532,28342,0,0,0
+82,SupplierD,Europe,Textiles,25,501,6895,1,0,0
+83,SupplierA,Europe,Textiles,11,6868,13023,0,0,0
+84,SupplierD,Europe,Textiles,14,11540,12699,1,0,0
+85,SupplierC,North America,Furniture,17,2449,11715,1,1,17
+86,SupplierC,Asia,Textiles,21,7232,21169,0,0,0
+87,SupplierB,North America,Textiles,25,8333,18163,0,0,0
+88,SupplierA,North America,Electronics,18,1417,7782,1,0,0
+89,SupplierD,Europe,Furniture,6,3674,24641,0,0,0
+90,SupplierB,North America,Furniture,26,10933,20792,1,1,12
+91,SupplierD,Europe,Furniture,15,7514,37585,0,0,0
+92,SupplierD,Asia,Textiles,5,589,32682,0,1,13
+93,SupplierB,Europe,Textiles,23,2209,49864,0,1,18
+94,SupplierB,Asia,Textiles,25,10861,20880,1,1,7
+95,SupplierB,Europe,Electronics,8,3541,40067,1,1,2
+96,SupplierB,North America,Textiles,23,605,44685,0,0,0
+97,SupplierB,North America,Electronics,25,9578,20073,0,1,15
+98,SupplierD,Asia,Furniture,15,9119,38035,1,1,6
+99,SupplierB,Asia,Textiles,12,2395,39174,0,0,0
+100,SupplierA,Asia,Electronics,15,6590,26837,0,0,0
+101,SupplierC,Europe,Electronics,8,9008,19826,0,0,0
+102,SupplierB,Europe,Textiles,21,6582,26981,0,0,0
+103,SupplierB,Asia,Furniture,11,1134,12382,1,0,0
+104,SupplierD,North America,Furniture,12,2425,6437,0,1,6
+105,SupplierB,Europe,Furniture,7,2556,7435,0,0,0
+106,SupplierB,Europe,Electronics,26,7417,26819,0,0,0
+107,SupplierB,Europe,Electronics,6,3644,38875,1,1,8
+108,SupplierD,Asia,Electronics,27,10962,33982,0,0,0
+109,SupplierB,Asia,Electronics,19,10131,35328,0,1,2
+110,SupplierC,Asia,Furniture,28,1052,14329,0,0,0
+111,SupplierD,Asia,Textiles,26,9407,27169,1,1,8
+112,SupplierC,Asia,Electronics,26,5883,23932,0,0,0
+113,SupplierD,North America,Electronics,9,4411,36594,0,0,0
+114,SupplierB,North America,Furniture,28,10405,13421,0,0,0
+115,SupplierC,Asia,Textiles,5,3889,47033,0,1,19
+116,SupplierD,Europe,Textiles,8,9799,9629,0,1,11
+117,SupplierA,Asia,Furniture,19,8942,10325,1,0,0
+118,SupplierB,North America,Furniture,24,2930,30495,0,0,0
+119,SupplierD,North America,Textiles,23,10746,33750,1,1,11
+120,SupplierA,Europe,Electronics,7,958,31619,0,0,0
+121,SupplierD,North America,Textiles,24,707,42461,1,1,3
+122,SupplierA,Asia,Furniture,15,1399,10264,0,0,0
+123,SupplierB,Europe,Electronics,21,521,14686,0,0,0
+124,SupplierC,Asia,Electronics,17,9101,48484,1,0,0
+125,SupplierA,Asia,Furniture,15,1394,26226,1,0,0
+126,SupplierD,Europe,Furniture,6,1014,8721,0,1,19
+127,SupplierB,Asia,Furniture,13,7794,22609,0,0,0
+128,SupplierA,North America,Textiles,6,5404,9373,1,1,18
+129,SupplierD,Asia,Textiles,25,8367,40675,0,1,18
+130,SupplierD,Europe,Electronics,13,4609,30937,1,1,13
+131,SupplierD,Europe,Furniture,13,7679,7656,1,1,8
+132,SupplierA,Europe,Electronics,12,10826,10984,0,1,4
+133,SupplierA,Asia,Electronics,21,11648,31984,0,0,0
+134,SupplierA,Europe,Electronics,5,2060,10286,0,0,0
+135,SupplierC,Europe,Electronics,29,1766,7901,0,0,0
+136,SupplierA,Asia,Furniture,15,10861,33552,0,1,17
+137,SupplierA,North America,Electronics,12,4138,27709,1,1,3
+138,SupplierA,Asia,Furniture,14,9441,33055,0,1,11
+139,SupplierC,Europe,Furniture,29,3927,39685,1,1,7
+140,SupplierA,Europe,Textiles,11,5280,10429,0,0,0
+141,SupplierD,Asia,Furniture,7,2427,16716,0,1,8
+142,SupplierA,North America,Textiles,7,2856,13138,0,0,0
+143,SupplierD,Europe,Furniture,22,5290,37298,0,0,0
+144,SupplierD,Europe,Furniture,9,11027,25429,0,1,10
+145,SupplierD,Europe,Furniture,16,806,7772,0,0,0
+146,SupplierC,Asia,Textiles,16,8479,37732,1,1,20
+147,SupplierC,Europe,Textiles,23,4165,41905,0,0,0
+148,SupplierC,North America,Electronics,10,10681,19347,0,0,0
+149,SupplierA,Europe,Textiles,6,7557,18920,0,1,3
+150,SupplierD,Europe,Textiles,16,1161,33822,0,0,0
+151,SupplierC,North America,Textiles,23,5144,48659,0,0,0
+152,SupplierC,Europe,Textiles,9,9003,42108,0,1,7
+153,SupplierA,Asia,Electronics,16,3420,25563,0,0,0
+154,SupplierC,Asia,Textiles,21,9774,9967,0,1,11
+155,SupplierA,Asia,Furniture,21,11663,47183,0,0,0
+156,SupplierB,North America,Furniture,14,9446,13871,1,0,0
+157,SupplierC,Europe,Textiles,29,6736,30763,0,0,0
+158,SupplierB,Asia,Textiles,27,6578,13916,0,1,7
+159,SupplierA,North America,Furniture,21,852,10734,0,0,0
+160,SupplierD,Europe,Furniture,19,9594,35613,0,0,0
+161,SupplierC,North America,Electronics,16,7505,30179,1,0,0
+162,SupplierA,Asia,Furniture,20,658,37262,0,0,0
+163,SupplierD,Asia,Furniture,28,10669,14677,0,0,0
+164,SupplierD,Asia,Textiles,23,1456,20268,0,1,20
+165,SupplierB,North America,Furniture,12,2571,14330,0,0,0
+166,SupplierA,North America,Electronics,25,9095,22733,0,0,0
+167,SupplierD,Asia,Furniture,21,11471,39947,0,0,0
+168,SupplierC,North America,Textiles,27,10079,29286,1,1,17
+169,SupplierC,Asia,Textiles,9,3953,8610,0,0,0
+170,SupplierB,Asia,Furniture,26,7175,8430,0,0,0
+171,SupplierD,Europe,Textiles,20,1455,41922,0,0,0
+172,SupplierA,North America,Electronics,10,6795,15828,0,0,0
+173,SupplierC,Asia,Electronics,12,2212,44913,0,0,0
+174,SupplierD,Asia,Furniture,29,5203,33497,1,1,14
+175,SupplierD,North America,Furniture,22,7063,41256,1,0,0
+176,SupplierB,Europe,Furniture,29,9965,38618,0,0,0
+177,SupplierC,Europe,Textiles,16,6131,48332,1,1,18
+178,SupplierC,Asia,Electronics,19,11317,28526,1,1,10
+179,SupplierA,North America,Electronics,13,11074,32158,1,0,0
+180,SupplierC,Europe,Textiles,17,10133,27032,0,0,0
+181,SupplierA,North America,Electronics,19,11671,39846,1,0,0
+182,SupplierC,North America,Furniture,14,10489,46936,0,0,0
+183,SupplierB,Asia,Furniture,20,1894,31794,1,0,0
+184,SupplierC,Europe,Furniture,11,9961,7448,0,0,0
+185,SupplierA,Asia,Electronics,21,5232,30861,0,0,0
+186,SupplierA,Europe,Furniture,27,4214,30141,1,0,0
+187,SupplierB,Europe,Textiles,25,1029,11074,0,1,11
+188,SupplierC,Europe,Textiles,26,3458,8406,1,1,7
+189,SupplierC,Europe,Electronics,11,8404,33823,1,0,0
+190,SupplierB,Europe,Textiles,18,11606,25291,0,0,0
+191,SupplierC,North America,Textiles,19,4091,43568,0,0,0
+192,SupplierC,Asia,Electronics,25,10839,34003,0,0,0
+193,SupplierA,North America,Furniture,11,7395,48851,0,1,19
+194,SupplierC,Europe,Furniture,13,9631,36406,0,1,19
+195,SupplierC,Asia,Furniture,23,1025,25312,1,0,0
+196,SupplierB,Europe,Electronics,20,6977,45108,0,1,16
+197,SupplierB,Asia,Textiles,12,501,3382,0,0,0
+198,SupplierD,North America,Furniture,22,874,36171,1,1,5
+199,SupplierA,Asia,Furniture,27,11032,43779,0,0,0
+200,SupplierC,Asia,Electronics,22,11744,5292,0,0,0
+201,SupplierC,Asia,Furniture,24,5148,43779,1,1,18
+202,SupplierD,Asia,Electronics,11,2865,35187,0,0,0
+203,SupplierC,Asia,Textiles,7,2025,14411,1,0,0
+204,SupplierA,Europe,Electronics,22,2146,39285,1,0,0
+205,SupplierD,Asia,Electronics,14,513,17422,1,1,19
+206,SupplierA,Asia,Electronics,11,5099,44468,0,0,0
+207,SupplierD,North America,Electronics,21,2778,34371,0,0,0
+208,SupplierD,Asia,Textiles,18,3655,7693,0,0,0
+209,SupplierB,North America,Textiles,28,8821,35535,1,1,18
+210,SupplierA,Europe,Furniture,7,4314,16818,1,1,16
+211,SupplierC,Asia,Textiles,16,3716,33238,0,0,0
+212,SupplierC,North America,Textiles,17,11630,32874,0,0,0
+213,SupplierA,North America,Furniture,6,10732,28715,0,1,15
+214,SupplierC,Europe,Textiles,7,8719,29605,0,0,0
+215,SupplierC,Asia,Electronics,9,2613,36317,1,1,12
+216,SupplierA,Asia,Electronics,15,9944,33174,0,0,0
+217,SupplierD,North America,Furniture,12,4856,11956,1,1,3
+218,SupplierA,Asia,Furniture,27,10738,40908,1,0,0
+219,SupplierD,North America,Furniture,27,6043,12837,0,0,0
+220,SupplierC,Asia,Electronics,16,5055,5716,0,0,0
+221,SupplierC,North America,Textiles,11,7562,6481,0,0,0
+222,SupplierC,Asia,Electronics,19,3874,26282,0,0,0
+223,SupplierB,Europe,Furniture,28,6930,8548,1,0,0
+224,SupplierD,Asia,Textiles,21,3966,39605,1,0,0
+225,SupplierB,Asia,Textiles,8,3581,9758,1,1,19
+226,SupplierB,Europe,Electronics,26,1129,45668,0,0,0
+227,SupplierA,Asia,Furniture,29,769,25177,0,0,0
+228,SupplierB,Europe,Electronics,17,11331,26022,1,1,19
+229,SupplierA,Asia,Textiles,22,10685,42761,0,0,0
+230,SupplierA,North America,Electronics,5,6224,7542,0,0,0
+231,SupplierB,North America,Electronics,20,6397,27476,0,1,5
+232,SupplierD,Asia,Furniture,17,11583,32784,0,0,0
+233,SupplierD,Asia,Furniture,14,3932,24740,0,0,0
+234,SupplierD,Asia,Textiles,16,9972,26817,0,0,0
+235,SupplierD,North America,Electronics,6,6776,49596,1,1,11
+236,SupplierD,Asia,Electronics,27,6395,18052,0,1,7
+237,SupplierB,North America,Electronics,7,7615,37153,0,0,0
+238,SupplierB,Europe,Textiles,14,7156,49076,0,0,0
+239,SupplierC,North America,Textiles,6,11052,2671,1,1,9
+240,SupplierD,North America,Furniture,27,1075,2163,0,0,0
+241,SupplierB,Europe,Furniture,17,7529,43424,0,1,15
+242,SupplierC,North America,Furniture,17,6599,46002,0,0,0
+243,SupplierD,Asia,Electronics,22,9999,6795,1,1,18
+244,SupplierA,Asia,Electronics,7,3692,12634,0,0,0
+245,SupplierC,North America,Furniture,11,3678,6798,1,0,0
+246,SupplierB,Asia,Electronics,18,6552,24420,1,0,0
+247,SupplierA,North America,Furniture,24,3234,31300,0,0,0
+248,SupplierA,Asia,Textiles,21,6616,26345,1,1,18
+249,SupplierA,Asia,Furniture,25,10904,12749,0,0,0
+250,SupplierC,North America,Textiles,16,11044,40595,1,1,6
+251,SupplierB,Asia,Electronics,29,4068,27121,0,0,0
+252,SupplierA,North America,Furniture,20,10347,39487,1,1,19
+253,SupplierD,Asia,Electronics,28,10271,30411,0,0,0
+254,SupplierA,Asia,Textiles,16,2703,35361,0,0,0
+255,SupplierA,Europe,Textiles,19,1890,23223,0,1,7
+256,SupplierC,Europe,Textiles,29,2242,9394,0,0,0
+257,SupplierC,North America,Electronics,14,2425,16056,0,0,0
+258,SupplierB,Europe,Electronics,29,1119,30380,0,0,0
+259,SupplierD,North America,Electronics,11,1774,28035,0,0,0
+260,SupplierC,Europe,Electronics,24,1456,32620,0,0,0
+261,SupplierA,Asia,Textiles,9,2439,21877,1,1,16
+262,SupplierB,North America,Textiles,5,4453,45404,0,0,0
+263,SupplierA,North America,Furniture,21,11073,32911,0,0,0
+264,SupplierA,Asia,Furniture,7,1468,34784,0,1,12
+265,SupplierC,North America,Electronics,17,10008,5191,0,0,0
+266,SupplierB,North America,Textiles,18,9735,35160,1,1,5
+267,SupplierD,Europe,Textiles,28,781,27000,0,0,0
+268,SupplierD,North America,Textiles,22,11536,41040,1,1,12
+269,SupplierC,Asia,Furniture,8,6762,5631,1,1,5
+270,SupplierC,Europe,Furniture,22,1558,8172,1,1,16
+271,SupplierB,Europe,Textiles,9,4793,44080,0,0,0
+272,SupplierD,Asia,Textiles,29,11224,25561,1,1,4
+273,SupplierD,Asia,Textiles,20,5678,26817,1,0,0
+274,SupplierD,Europe,Furniture,5,7480,22281,0,0,0
+275,SupplierA,North America,Textiles,25,9700,30671,0,0,0
+276,SupplierD,Europe,Textiles,18,1729,27364,0,0,0
+277,SupplierA,Asia,Electronics,19,9727,43674,0,0,0
+278,SupplierB,Europe,Electronics,13,5085,29425,0,0,0
+279,SupplierA,Asia,Furniture,19,8967,30602,0,0,0
+280,SupplierB,Europe,Textiles,21,3240,25253,0,0,0
+281,SupplierD,North America,Textiles,29,2789,25472,0,0,0
+282,SupplierD,Europe,Electronics,28,1739,10080,0,0,0
+283,SupplierB,Europe,Furniture,8,5870,9099,0,1,19
+284,SupplierC,Asia,Electronics,16,625,27431,0,0,0
+285,SupplierB,Asia,Electronics,9,7973,33186,0,1,4
+286,SupplierC,Asia,Electronics,9,9900,49684,0,0,0
+287,SupplierA,Europe,Electronics,15,5842,32111,1,0,0
+288,SupplierA,North America,Textiles,10,7851,41851,0,0,0
+289,SupplierA,Asia,Textiles,11,7138,24614,0,0,0
+290,SupplierD,Asia,Electronics,28,7070,28724,1,1,5
+291,SupplierA,Europe,Furniture,18,3749,43991,0,1,6
+292,SupplierC,Asia,Furniture,28,9610,6940,0,0,0
+293,SupplierA,North America,Furniture,15,8095,30758,1,0,0
+294,SupplierB,North America,Furniture,17,6794,38224,1,0,0
+295,SupplierB,Asia,Electronics,6,7027,9788,0,1,11
+296,SupplierD,Asia,Textiles,29,6257,30082,0,0,0
+297,SupplierB,Europe,Furniture,11,2469,26034,1,0,0
+298,SupplierC,North America,Electronics,24,11485,37479,0,0,0
+299,SupplierA,North America,Furniture,8,1391,13280,0,0,0
+300,SupplierD,Asia,Furniture,12,4970,20052,1,0,0
+301,SupplierA,Europe,Electronics,24,7675,18531,0,1,11
+302,SupplierA,North America,Textiles,26,10725,24804,0,0,0
+303,SupplierC,North America,Textiles,25,10056,30903,0,0,0
+304,SupplierB,Europe,Electronics,23,8820,46857,1,0,0
+305,SupplierB,Europe,Textiles,17,9706,12142,0,0,0
+306,SupplierA,North America,Electronics,18,10491,11866,0,1,2
+307,SupplierD,North America,Electronics,14,7312,6531,0,1,18
+308,SupplierB,Europe,Electronics,15,8019,47454,0,0,0
+309,SupplierD,North America,Textiles,6,5112,40098,0,0,0
+310,SupplierB,Asia,Electronics,29,10210,40278,1,0,0
+311,SupplierD,Asia,Furniture,13,1698,30138,0,0,0
+312,SupplierC,Europe,Textiles,21,5738,29065,0,0,0
+313,SupplierD,Europe,Textiles,7,11166,31956,1,1,8
+314,SupplierC,Europe,Textiles,28,6589,43732,0,0,0
+315,SupplierC,Asia,Textiles,10,6757,41261,1,1,6
+316,SupplierD,North America,Furniture,9,8205,12759,0,0,0
+317,SupplierC,Asia,Textiles,9,4219,7439,0,0,0
+318,SupplierA,North America,Textiles,26,802,49241,0,1,13
+319,SupplierC,Asia,Electronics,19,1486,44533,1,0,0
+320,SupplierB,North America,Textiles,27,10555,30270,0,0,0
+321,SupplierD,Asia,Furniture,21,4940,15279,0,0,0
+322,SupplierA,Europe,Furniture,13,5409,41279,0,0,0
+323,SupplierD,Asia,Furniture,7,3572,46251,0,1,6
+324,SupplierB,North America,Furniture,24,3624,25888,0,1,14
+325,SupplierB,Asia,Textiles,21,10019,19630,1,1,15
+326,SupplierB,Asia,Textiles,14,11100,37144,0,1,16
+327,SupplierC,Asia,Furniture,7,8625,33182,1,1,17
+328,SupplierC,Europe,Furniture,22,3791,27538,0,0,0
+329,SupplierD,Asia,Textiles,22,4533,13824,0,0,0
+330,SupplierD,Europe,Furniture,21,5605,34125,0,0,0
+331,SupplierA,Europe,Electronics,28,1203,8979,0,0,0
+332,SupplierA,Asia,Furniture,7,8633,28189,1,0,0
+333,SupplierD,Asia,Furniture,7,1074,44600,1,0,0
+334,SupplierC,Asia,Electronics,10,6204,14504,0,0,0
+335,SupplierB,North America,Electronics,17,11924,22669,0,1,19
+336,SupplierD,Asia,Textiles,28,8348,8910,0,0,0
+337,SupplierA,Europe,Textiles,19,5708,48857,1,0,0
+338,SupplierC,Asia,Electronics,29,7424,36964,0,0,0
+339,SupplierD,North America,Electronics,13,11324,22131,0,0,0
+340,SupplierD,Asia,Textiles,8,4328,27227,1,0,0
+341,SupplierC,North America,Furniture,18,3730,7978,0,0,0
+342,SupplierD,North America,Electronics,9,988,23991,0,1,11
+343,SupplierC,Asia,Textiles,6,7614,19153,0,0,0
+344,SupplierB,Europe,Furniture,15,10039,35548,1,1,20
+345,SupplierC,North America,Electronics,13,3673,44676,0,0,0
+346,SupplierC,Asia,Furniture,28,2167,41071,0,0,0
+347,SupplierC,Asia,Textiles,7,10329,49454,0,1,10
+348,SupplierD,Europe,Electronics,13,4614,5983,0,0,0
+349,SupplierD,North America,Furniture,7,4053,11503,0,0,0
+350,SupplierC,North America,Electronics,29,8261,31921,0,0,0
+351,SupplierD,Asia,Furniture,6,1500,18905,0,0,0
+352,SupplierA,Asia,Textiles,16,9542,47838,0,0,0
+353,SupplierA,Europe,Textiles,14,1888,25953,0,0,0
+354,SupplierD,Europe,Electronics,13,5950,28806,0,0,0
+355,SupplierD,North America,Furniture,19,4212,47000,1,0,0
+356,SupplierC,North America,Electronics,12,1867,24168,0,0,0
+357,SupplierB,Asia,Electronics,29,8689,6583,1,1,10
+358,SupplierD,North America,Furniture,9,9513,40714,1,1,16
+359,SupplierA,Europe,Furniture,15,954,41896,0,1,2
+360,SupplierC,Europe,Furniture,6,10316,13889,0,0,0
+361,SupplierD,Asia,Textiles,28,3272,29413,0,0,0
+362,SupplierA,Europe,Electronics,19,4226,14275,0,0,0
+363,SupplierA,Europe,Electronics,10,7732,4461,0,0,0
+364,SupplierB,Europe,Textiles,12,11839,16291,0,1,9
+365,SupplierC,Europe,Furniture,9,5306,48804,0,0,0
+366,SupplierC,Asia,Textiles,20,2690,13435,1,0,0
+367,SupplierB,Asia,Textiles,22,9608,29935,0,0,0
+368,SupplierB,North America,Textiles,10,3375,35453,1,0,0
+369,SupplierC,Europe,Electronics,9,6092,20544,0,0,0
+370,SupplierC,North America,Textiles,20,1940,14258,1,1,20
+371,SupplierD,Asia,Electronics,17,9427,32841,0,1,14
+372,SupplierD,Asia,Electronics,9,6559,12736,0,1,2
+373,SupplierB,Asia,Electronics,17,7510,39643,0,0,0
+374,SupplierD,Asia,Furniture,21,11707,45950,0,0,0
+375,SupplierA,Asia,Electronics,22,7617,36964,0,0,0
+376,SupplierD,Asia,Electronics,12,11581,30044,1,0,0
+377,SupplierD,Asia,Furniture,17,9653,41933,0,0,0
+378,SupplierA,Europe,Electronics,23,3489,17997,0,0,0
+379,SupplierB,North America,Textiles,7,9718,16215,1,1,8
+380,SupplierA,Asia,Textiles,28,6728,35069,1,1,18
+381,SupplierD,Europe,Electronics,12,6971,25911,0,0,0
+382,SupplierB,Europe,Furniture,6,3363,19030,0,0,0
+383,SupplierD,North America,Textiles,12,11193,31334,0,1,6
+384,SupplierA,Asia,Furniture,17,10639,16571,0,0,0
+385,SupplierA,North America,Furniture,17,1677,44719,1,1,4
+386,SupplierD,Asia,Textiles,5,5260,30927,1,1,8
+387,SupplierC,Europe,Furniture,10,511,22714,1,0,0
+388,SupplierC,Europe,Textiles,28,5752,45541,1,1,8
+389,SupplierA,Europe,Furniture,23,4899,25387,0,0,0
+390,SupplierA,Europe,Textiles,20,11714,30444,1,1,18
+391,SupplierC,North America,Electronics,12,11522,21921,1,0,0
+392,SupplierC,Asia,Textiles,5,8734,15057,0,1,12
+393,SupplierD,Asia,Textiles,20,9635,47268,1,0,0
+394,SupplierD,North America,Textiles,13,11082,26858,0,1,16
+395,SupplierC,Asia,Textiles,17,5945,46638,0,0,0
+396,SupplierD,Europe,Furniture,15,11237,28062,1,0,0
+397,SupplierD,Asia,Electronics,17,11103,38850,0,0,0
+398,SupplierB,Europe,Textiles,29,7070,48486,0,0,0
+399,SupplierD,North America,Furniture,25,9696,22567,0,0,0
+400,SupplierA,Asia,Electronics,14,8712,31739,0,0,0
+401,SupplierD,North America,Electronics,8,906,45285,1,1,20
+402,SupplierD,Asia,Electronics,10,9706,5754,0,1,13
+403,SupplierC,Europe,Electronics,11,4931,29044,0,1,20
+404,SupplierA,North America,Textiles,9,10530,3724,1,1,10
+405,SupplierD,Asia,Textiles,15,11880,3376,0,1,8
+406,SupplierD,Europe,Furniture,17,5743,10706,0,0,0
+407,SupplierB,North America,Furniture,29,7042,10894,0,0,0
+408,SupplierD,North America,Furniture,23,7436,20037,1,1,20
+409,SupplierD,Asia,Electronics,27,9406,20450,0,0,0
+410,SupplierB,Asia,Electronics,14,4646,18406,0,0,0
+411,SupplierC,Asia,Textiles,14,640,31725,0,0,0
+412,SupplierD,Europe,Electronics,15,5382,7926,0,0,0
+413,SupplierB,Asia,Electronics,25,6512,41019,0,0,0
+414,SupplierA,North America,Electronics,11,1463,11496,0,0,0
+415,SupplierC,North America,Furniture,22,7651,38068,0,1,15
+416,SupplierA,Asia,Furniture,8,9064,31806,1,0,0
+417,SupplierA,Asia,Textiles,6,11233,24663,0,0,0
+418,SupplierB,North America,Electronics,18,4110,43321,1,1,20
+419,SupplierD,Europe,Electronics,17,10384,38495,1,0,0
+420,SupplierB,Asia,Textiles,16,7394,24656,1,1,3
+421,SupplierB,Asia,Electronics,11,7811,27860,0,0,0
+422,SupplierB,North America,Electronics,6,605,18832,0,1,7
+423,SupplierB,Asia,Furniture,17,6039,40787,0,0,0
+424,SupplierC,Europe,Textiles,18,10373,23727,0,0,0
+425,SupplierD,North America,Textiles,21,11328,44815,0,0,0
+426,SupplierA,Asia,Textiles,13,7287,31545,1,1,5
+427,SupplierA,North America,Textiles,21,2637,46522,1,1,16
+428,SupplierD,Asia,Furniture,12,4945,4520,0,0,0
+429,SupplierA,Asia,Furniture,6,4030,5081,0,1,14
+430,SupplierD,Asia,Electronics,28,1786,36196,1,0,0
+431,SupplierA,Europe,Electronics,17,11871,38735,0,0,0
+432,SupplierB,Europe,Electronics,7,7552,41213,0,0,0
+433,SupplierA,North America,Electronics,20,4154,16566,1,1,14
+434,SupplierD,Asia,Furniture,10,7602,16042,0,0,0
+435,SupplierD,Asia,Textiles,23,2859,27498,0,0,0
+436,SupplierD,Europe,Furniture,11,8605,13329,0,0,0
+437,SupplierD,Asia,Electronics,14,9136,33656,1,1,20
+438,SupplierD,Europe,Furniture,13,6941,4159,0,1,4
+439,SupplierC,Asia,Textiles,6,5547,39900,0,1,15
+440,SupplierC,North America,Textiles,19,8727,21363,0,1,9
+441,SupplierA,Asia,Furniture,9,5703,49701,0,0,0
+442,SupplierD,Asia,Furniture,26,10167,45241,0,1,12
+443,SupplierA,Europe,Furniture,8,2298,21033,1,0,0
+444,SupplierD,Asia,Electronics,24,10537,12805,0,0,0
+445,SupplierD,Asia,Furniture,8,10100,37851,1,1,3
+446,SupplierC,Europe,Furniture,22,5791,28832,0,0,0
+447,SupplierC,North America,Furniture,8,5995,15944,0,0,0
+448,SupplierB,North America,Textiles,21,10400,21873,0,1,3
+449,SupplierC,Europe,Textiles,16,11630,42372,0,0,0
+450,SupplierB,Europe,Electronics,26,6784,25928,0,1,17
+451,SupplierB,Europe,Electronics,21,7785,17379,0,0,0
+452,SupplierB,Europe,Textiles,14,1800,38751,0,0,0
+453,SupplierB,Europe,Textiles,26,7369,36546,0,0,0
+454,SupplierB,North America,Textiles,5,9935,26286,0,0,0
+455,SupplierA,North America,Furniture,26,3597,7110,1,0,0
+456,SupplierC,Europe,Furniture,28,5116,14087,1,1,14
+457,SupplierB,Asia,Textiles,22,509,25762,0,1,8
+458,SupplierD,Europe,Furniture,22,11117,19081,0,1,18
+459,SupplierC,Asia,Furniture,18,6252,36947,0,0,0
+460,SupplierC,Europe,Electronics,19,10352,11596,0,0,0
+461,SupplierB,Europe,Textiles,16,11323,40019,0,0,0
+462,SupplierA,North America,Textiles,8,6795,44003,1,1,13
+463,SupplierB,Asia,Furniture,7,5315,20313,0,0,0
+464,SupplierA,Asia,Textiles,24,1572,49639,0,1,10
+465,SupplierD,North America,Electronics,16,3725,3013,1,1,7
+466,SupplierC,North America,Electronics,11,1816,25705,0,0,0
+467,SupplierD,North America,Electronics,15,6199,3828,1,1,17
+468,SupplierA,North America,Textiles,5,7307,9909,0,1,4
+469,SupplierA,Asia,Textiles,10,7174,40356,0,1,5
+470,SupplierD,Asia,Textiles,19,4183,15109,0,0,0
+471,SupplierA,Europe,Textiles,19,7727,4023,0,0,0
+472,SupplierD,Europe,Textiles,23,3773,16537,1,1,11
+473,SupplierC,North America,Electronics,15,7500,28661,0,1,13
+474,SupplierD,North America,Furniture,27,645,40659,1,1,11
+475,SupplierC,North America,Electronics,6,5510,35848,0,0,0
+476,SupplierD,Europe,Textiles,18,3540,39804,0,0,0
+477,SupplierA,Europe,Electronics,6,10154,17379,0,1,17
+478,SupplierD,Europe,Textiles,8,10276,29766,0,0,0
+479,SupplierA,Europe,Textiles,21,982,45590,1,0,0
+480,SupplierD,Europe,Electronics,7,3679,4563,0,0,0
+481,SupplierD,Europe,Textiles,17,1749,38060,0,0,0
+482,SupplierB,Europe,Furniture,13,1130,31197,0,0,0
+483,SupplierA,North America,Textiles,11,9353,5586,0,1,13
+484,SupplierB,North America,Furniture,19,3352,18087,0,1,11
+485,SupplierA,North America,Furniture,27,11158,25225,0,1,13
+486,SupplierB,North America,Textiles,15,1487,31750,1,0,0
+487,SupplierC,Europe,Electronics,24,8122,8643,0,0,0
+488,SupplierD,Asia,Furniture,6,7827,29523,0,1,17
+489,SupplierA,Europe,Electronics,19,10238,38727,0,0,0
+490,SupplierA,Asia,Furniture,18,9341,13005,0,0,0
+491,SupplierD,North America,Textiles,24,9660,45543,1,1,19
+492,SupplierA,Europe,Textiles,26,11329,2161,0,1,13
+493,SupplierA,North America,Furniture,15,1600,18029,0,0,0
+494,SupplierB,Europe,Textiles,7,7152,16226,0,0,0
+495,SupplierA,North America,Furniture,21,9132,30731,0,1,18
+496,SupplierC,Asia,Textiles,16,7921,45922,0,1,7
+497,SupplierC,Asia,Electronics,28,5516,46848,1,0,0
+498,SupplierD,Asia,Textiles,25,1269,5390,1,1,4
+499,SupplierA,Europe,Electronics,19,1843,7997,1,0,0
+500,SupplierD,Asia,Textiles,20,4858,14693,0,0,0
