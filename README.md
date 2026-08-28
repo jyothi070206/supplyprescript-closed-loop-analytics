@@ -39,7 +39,13 @@ case, distinct from the agentic-AI focus of Project 1.
   App Router) with a placeholder for prescription cards. Set up FastAPI 
   backend skeleton with a health-check endpoint, confirmed running 
   locally. Selected PostgreSQL (via Neon, free tier) as the database 
-  for the Write-Back Architecture in Week 2, per the project brief's 
+  for the Write-Back Architecture in Week 2, per the project brief's .
+- **Day 3**: Generated mock historical supply chain dataset (500 
+  shipments with supplier, region, category, lead time, distance, 
+  order value, and peak-season flag). Trained a baseline XGBoost 
+  classifier to predict shipment delays, evaluated on a held-out 
+  test set, and saved the trained model (delay_prediction_model.pkl) 
+  for use in Week 2's prescriptive engine.
 <<<<<<< HEAD
   explicit "PostgreSQL or Snowflake" allowance.
 =======
