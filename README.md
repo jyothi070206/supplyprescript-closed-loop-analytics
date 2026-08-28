@@ -34,7 +34,7 @@ case, distinct from the agentic-AI focus of Project 1.
 ### Week 1
 - **Day 1**: Repo setup, architecture study, planned data model 
   (predicted delay probability, cost/time trade-offs for 3 alternative 
-  actions: air freight, secondary supplier, delayed launch)
+  actions: air freight, secondary supplier, delayed launch).
 - **Day 2**: Scaffolded Next.js dashboard frontend (TypeScript + Tailwind, 
   App Router) with a placeholder for prescription cards. Set up FastAPI 
   backend skeleton with a health-check endpoint, confirmed running 
@@ -46,8 +46,3 @@ case, distinct from the agentic-AI focus of Project 1.
   classifier to predict shipment delays, evaluated on a held-out 
   test set, and saved the trained model (delay_prediction_model.pkl) 
   for use in Week 2's prescriptive engine.
-<<<<<<< HEAD
-  explicit "PostgreSQL or Snowflake" allowance.
-=======
-  explicit "PostgreSQL or Snowflake" allowance.
->>>>>>> bd207264a914f79f834d6045787b174a215570f3
