@@ -53,3 +53,10 @@ case, distinct from the agentic-AI focus of Project 1.
   is never violated (Optimization Audit passed). Built the Prescriptive 
   UI in Next.js — dashboard cards showing each option's cost/speed 
   trade-off with an Execute Decision button.
+- **Day 5**: Set up free cloud PostgreSQL (Neon) and created the 
+  decisions table. Built FastAPI write-back endpoint (/execute-decision) 
+  that performs a real INSERT into the operational database, plus a 
+  /decisions endpoint to read them back. Connected the dashboard's 
+  Execute Decision buttons to call this API live — verified end to end 
+  that clicking a card writes a real row to the cloud database, with a 
+  confirmation banner showing the decision ID and timestamp in the UI.
