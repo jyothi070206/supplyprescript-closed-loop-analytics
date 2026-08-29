@@ -45,9 +45,11 @@ case, distinct from the agentic-AI focus of Project 1.
   order value, and peak-season flag). Trained a baseline XGBoost 
   classifier to predict shipment delays, evaluated on a held-out 
   test set, and saved the trained model (delay_prediction_model.pkl) 
-  for use in Week 2's prescriptive engine.
-<<<<<<< HEAD
-  explicit "PostgreSQL or Snowflake" allowance.
-=======
-  explicit "PostgreSQL or Snowflake" allowance.
->>>>>>> bd207264a914f79f834d6045787b174a215570f3
+  for use in Week 2's prescriptive engine.explicit "PostgreSQL or Snowflake" allowance.
+- **Day 4**: Built the Prescriptive Solver — generates 3 alternative 
+  actions (Air Freight, Secondary Supplier, Delay Launch) with cost, 
+  time-saved, and budget-feasibility for a predicted delay, matching 
+  the project's use case exactly. Verified the hard budget constraint 
+  is never violated (Optimization Audit passed). Built the Prescriptive 
+  UI in Next.js — dashboard cards showing each option's cost/speed 
+  trade-off with an Execute Decision button.
