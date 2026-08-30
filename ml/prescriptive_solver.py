@@ -63,11 +63,16 @@ def generate_prescriptions(predicted_delay_days: int, order_value_usd: float,
 
 def prove_constraint_never_violated(options, max_budget):
     """
-    Optimization Audit helper: proves no returned option
-    ever exceeds the hard budget constraint.
+    Optimization Audit helper: proves the solver never mislabels an
+    over-budget option as feasible. Over-budget options are allowed
+    to appear (so the user can see why they're excluded) as long as
+    they are correctly flagged infeasible=False.
     """
-    violations = [o for o in options if o["cost_usd"] > max_budget]
-    return len(violations) == 0
+    mislabeled = [
+        o for o in options
+        if o["cost_usd"] > max_budget and o["feasible"]
+    ]
+    return len(mislabeled) == 0
 
 
 if __name__ == "__main__":

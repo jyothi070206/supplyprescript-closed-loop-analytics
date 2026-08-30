@@ -60,3 +60,9 @@ case, distinct from the agentic-AI focus of Project 1.
   Execute Decision buttons to call this API live — verified end to end 
   that clicking a card writes a real row to the cloud database, with a 
   confirmation banner showing the decision ID and timestamp in the UI.
+- **Day 6**: Ran a formal Optimization Audit across 5 varied scenarios 
+  (including deliberately tight budgets) — confirmed the solver never 
+  silently recommends a budget-violating option. Documented in 
+  optimization_audit.md. Polished the Prescriptive UI with a "Best 
+  Value" indicator (lowest cost per day of delay avoided) and cleaner 
+  card styling.  
