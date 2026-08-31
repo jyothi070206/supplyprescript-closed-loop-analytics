@@ -66,3 +66,8 @@ case, distinct from the agentic-AI focus of Project 1.
   optimization_audit.md. Polished the Prescriptive UI with a "Best 
   Value" indicator (lowest cost per day of delay avoided) and cleaner 
   card styling.  
+- **Day 7**: Documented formal Write-Back Check proof 
+  (write_back_check.md) consolidating manual API testing, direct 
+  database verification, and live UI testing into one evidence file. 
+  Created mid_review_checklist.md to track Mid-Project Review 
+  readiness against the SOP's Week 1 + Week 2 requirements.  
