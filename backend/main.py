@@ -78,3 +78,79 @@ def get_all_decisions():
         }
         for r in rows
     ]
+
+class OutcomeRequest(BaseModel):
+    decision_id: int
+    actual_cost_usd: float
+
+@app.post("/record-outcome")
+def record_outcome(outcome: OutcomeRequest):
+    """
+    Simulates what happens 'three weeks later' per the brief's use case:
+    the real-world outcome of an executed decision becomes known, and
+    gets recorded against the original prediction.
+    """
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        UPDATE decisions
+        SET actual_cost_usd = %s, outcome_recorded = TRUE
+        WHERE id = %s
+        RETURNING id, cost_usd, actual_cost_usd;
+        """,
+        (outcome.actual_cost_usd, outcome.decision_id),
+    )
+    row = cur.fetchone()
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    if row is None:
+        return {"error": "Decision not found"}
+
+    decision_id, predicted_cost, actual_cost = row
+    discrepancy = float(actual_cost) - float(predicted_cost)
+
+    return {
+        "message": "Outcome recorded",
+        "decision_id": decision_id,
+        "predicted_cost": float(predicted_cost),
+        "actual_cost": float(actual_cost),
+        "discrepancy": discrepancy,
+    }
+
+@app.get("/closed-loop-summary")
+def closed_loop_summary():
+    """
+    The Closed Loop: compares predicted vs. actual cost across all
+    decisions that have had their outcome recorded.
+    """
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT id, chosen_action, cost_usd, actual_cost_usd
+        FROM decisions
+        WHERE outcome_recorded = TRUE
+        ORDER BY executed_at DESC;
+        """
+    )
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    results = []
+    for r in rows:
+        predicted = float(r[2])
+        actual = float(r[3])
+        results.append({
+            "decision_id": r[0],
+            "action": r[1],
+            "predicted_cost": predicted,
+            "actual_cost": actual,
+            "discrepancy": actual - predicted,
+            "accurate_within_10pct": abs(actual - predicted) <= (predicted * 0.10),
+        })
+
+    return {"evaluated_decisions": results}

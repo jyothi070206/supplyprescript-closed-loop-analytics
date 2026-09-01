@@ -71,3 +71,10 @@ case, distinct from the agentic-AI focus of Project 1.
   database verification, and live UI testing into one evidence file. 
   Created mid_review_checklist.md to track Mid-Project Review 
   readiness against the SOP's Week 1 + Week 2 requirements.  
+- **Day 8**: Built the Closed Loop — added /record-outcome and 
+  /closed-loop-summary endpoints. The system now compares the 
+  predicted cost of an executed decision against its real-world 
+  outcome, calculating the discrepancy and flagging whether the 
+  prediction was accurate within 10%, matching the brief's exact 
+  use case (predicted $15k Air Freight, actual $18k, +$3k discrepancy). 
+  Verified both endpoints return 200 OK with correct data.
