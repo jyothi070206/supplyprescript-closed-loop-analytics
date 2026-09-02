@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --deck: #eff1f4;
+  --surface: #ffffff;
+  --ink: #14181d;
+  --ink-soft: #5b6570;
+  --line: #d8dce1;
+  --amber: #d9662b;
+  --amber-soft: #fbe9dd;
+  --steel: #2b5a6b;
+  --steel-soft: #e3edef;
+  --success: #2e7d5b;
+  --success-soft: #e1f0e8;
+  --danger: #b23a2e;
+  --danger-soft: #f5e1de;
+  --shadow: 0 10px 28px -14px rgba(20, 24, 29, 0.22);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--deck);
+  color: var(--ink);
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-display { font-family: var(--font-display), sans-serif; }
+.font-mono { font-family: var(--font-mono), monospace; }
+.card-shadow { box-shadow: var(--shadow); }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise-in { animation: rise-in 300ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot, .rise-in { animation: none; }
 }
