@@ -81,3 +81,4 @@ case, distinct from the agentic-AI focus of Project 1.
   prediction was accurate within 10%, matching the brief's exact 
   use case (predicted $15k Air Freight, actual $18k, +$3k discrepancy). 
   Verified both endpoints return 200 OK with correct data.
+- **Day 9**: Feedback UI: Decision ROI view (frontend)
