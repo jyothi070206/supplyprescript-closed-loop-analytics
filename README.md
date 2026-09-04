@@ -81,4 +81,13 @@ case, distinct from the agentic-AI focus of Project 1.
   prediction was accurate within 10%, matching the brief's exact 
   use case (predicted $15k Air Freight, actual $18k, +$3k discrepancy). 
   Verified both endpoints return 200 OK with correct data.
-- **Day 9**: Feedback UI: Decision ROI view (frontend)
+- **Day 9**: Redesigned the entire dashboard with a distinct "Ops 
+  Deck" visual identity (Space Grotesk + Inter + IBM Plex Mono, 
+  amber/steel industrial palette) — separate from Project 1's editorial 
+  style, matched to the supply chain domain. Added a Closed-Loop 
+  Pipeline stepper (Predicted → Prescribed → Executed → Evaluated) as 
+  the signature element, directly visualizing the system's real 
+  architecture. Built the Feedback UI (Decision ROI) — a live table 
+  pulling from /closed-loop-summary, showing predicted vs. actual cost, 
+  discrepancy, and an on-target/off-target accuracy badge for every 
+  evaluated decision, plus an aggregate accuracy percentage.
