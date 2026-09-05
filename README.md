@@ -91,3 +91,9 @@ case, distinct from the agentic-AI focus of Project 1.
   pulling from /closed-loop-summary, showing predicted vs. actual cost, 
   discrepancy, and an on-target/off-target accuracy badge for every 
   evaluated decision, plus an aggregate accuracy percentage.
+- **Day 10**: Built the Continuous Learning pipeline — automatically 
+  detects significant (>10%) discrepancies between predicted and 
+  actual costs via the Closed Loop, and triggers XGBoost re-training 
+  when found. Verified end to end using the Day 8 discrepancy 
+  (Air Freight, 20% off) — pipeline correctly triggered and produced 
+  an updated model. Documented in continuous_learning.md.  
