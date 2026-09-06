@@ -96,4 +96,12 @@ case, distinct from the agentic-AI focus of Project 1.
   actual costs via the Closed Loop, and triggers XGBoost re-training 
   when found. Verified end to end using the Day 8 discrepancy 
   (Air Freight, 20% off) — pipeline correctly triggered and produced 
-  an updated model. Documented in continuous_learning.md.  
+  an updated model. Documented in continuous_learning.md. 
+- **Day 11**: Refine & Polish — added a "Record a real-world outcome" 
+  form directly in the dashboard, so an analyst can close the loop 
+  without needing Swagger/API tools. Previously this only worked via 
+  the raw API; now it's a genuine part of the operational workflow, 
+  directly satisfying the brief's requirement that "the analyst is no 
+  longer just a passive observer, but an active participant." The 
+  Decision ROI table refreshes automatically after each recorded 
+  outcome.   

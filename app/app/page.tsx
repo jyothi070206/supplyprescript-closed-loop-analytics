@@ -69,6 +69,80 @@ function PipelineStepper({ activeStep }: { activeStep: number }) {
   );
 }
 
+function RecordOutcomeForm({ onRecorded }: { onRecorded: () => void }) {
+  const [decisionId, setDecisionId] = useState("");
+  const [actualCost, setActualCost] = useState("");
+  const [status, setStatus] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const submit = async () => {
+    if (!decisionId || !actualCost) {
+      setStatus("Enter both a decision ID and the actual cost.");
+      return;
+    }
+    setSubmitting(true);
+    setStatus(null);
+    try {
+      const res = await fetch(`${API_URL}/record-outcome`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          decision_id: Number(decisionId),
+          actual_cost_usd: Number(actualCost),
+        }),
+      });
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      setStatus(
+        `Outcome recorded — discrepancy: ${data.discrepancy >= 0 ? "+" : ""}$${data.discrepancy.toLocaleString()}`
+      );
+      setDecisionId("");
+      setActualCost("");
+      onRecorded();
+    } catch {
+      setStatus("Could not record outcome. Check the decision ID exists.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="border-t border-[var(--line)] pt-4 mt-4">
+      <p className="text-sm font-medium text-[var(--ink)] mb-2">
+        Record a real-world outcome
+      </p>
+      <p className="text-xs text-[var(--ink-soft)] mb-3">
+        When the actual cost of an executed decision becomes known, enter it here to close the loop.
+      </p>
+      <div className="flex flex-wrap gap-2 items-center">
+        <input
+          type="number"
+          placeholder="Decision ID"
+          value={decisionId}
+          onChange={(e) => setDecisionId(e.target.value)}
+          className="w-32 border border-[var(--line)] rounded-lg px-3 py-2 text-sm"
+        />
+        <input
+          type="number"
+          placeholder="Actual cost (USD)"
+          value={actualCost}
+          onChange={(e) => setActualCost(e.target.value)}
+          className="w-40 border border-[var(--line)] rounded-lg px-3 py-2 text-sm"
+        />
+        <button
+          onClick={submit}
+          disabled={submitting}
+          className="bg-[var(--steel)] text-white text-sm rounded-lg px-4 py-2 hover:opacity-90 disabled:opacity-50"
+        >
+          {submitting ? "Recording…" : "Record outcome"}
+        </button>
+      </div>
+      {status && <p className="text-xs text-[var(--ink-soft)] mt-2">{status}</p>}
+    </div>
+  );
+}
+
+
 export default function DashboardPage() {
   const [executing, setExecuting] = useState<string | null>(null);
   const [confirmation, setConfirmation] = useState<string | null>(null);
@@ -157,6 +231,7 @@ export default function DashboardPage() {
         {/* Pipeline */}
         <section className="rise-in card-shadow bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-6">
           <PipelineStepper activeStep={activeStep} />
+          <RecordOutcomeForm onRecorded={loadLedger} />
         </section>
 
         {/* Delay alert */}
