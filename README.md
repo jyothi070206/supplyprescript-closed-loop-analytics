@@ -105,3 +105,13 @@ case, distinct from the agentic-AI focus of Project 1.
   longer just a passive observer, but an active participant." The 
   Decision ROI table refreshes automatically after each recorded 
   outcome.   
+
+### Week 2
+
+- **Day 12**: Ran a full end-to-end system test across every component 
+  (predictive model, prescriptive solver, optimization audit, backend 
+  API, continuous learning, frontend dashboard) and logged results in 
+  system_test_log.md. Created PROOF_INDEX.md consolidating all proof 
+  documents against the brief's requirements — Week 1 and Week 2 
+  (project brief terms) are now fully documented and verified ahead 
+  of deployment.
