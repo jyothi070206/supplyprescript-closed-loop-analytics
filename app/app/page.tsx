@@ -49,7 +49,7 @@ function PipelineStepper({ activeStep }: { activeStep: number }) {
               {i + 1}
             </div>
             <span
-              className={`text-xs font-medium ${
+              className={`text-[10px] sm:text-xs font-medium text-center ${
                 i <= activeStep ? "text-[var(--ink)]" : "text-[var(--ink-soft)]"
               }`}
             >
@@ -142,12 +142,11 @@ function RecordOutcomeForm({ onRecorded }: { onRecorded: () => void }) {
   );
 }
 
-
 export default function DashboardPage() {
   const [executing, setExecuting] = useState<string | null>(null);
   const [confirmation, setConfirmation] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [activeStep, setActiveStep] = useState(1); // Predicted + Prescribed shown by default
+  const [activeStep, setActiveStep] = useState(1);
   const [evaluated, setEvaluated] = useState<EvaluatedDecision[]>([]);
   const [loadingLedger, setLoadingLedger] = useState(true);
 
@@ -188,7 +187,7 @@ export default function DashboardPage() {
       if (!res.ok) throw new Error(`Server responded ${res.status}`);
       const data = await res.json();
       setConfirmation(`Decision #${data.decision_id} recorded at ${data.executed_at}`);
-      setActiveStep(2); // Executed
+      setActiveStep(2);
       loadLedger();
     } catch {
       setError("Could not reach the backend. Start uvicorn on port 8000 and try again.");
@@ -221,17 +220,16 @@ export default function DashboardPage() {
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-soft)]">
             Closed-Loop Prescriptive Analytics
           </p>
-          <h1 className="font-display text-3xl font-semibold text-[var(--ink)] mt-1">
+          <h1 className="font-display text-2xl sm:text-3xl font-semibold text-[var(--ink)] mt-1">
             SupplyPrescript
           </h1>
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 py-8 sm:px-10 space-y-6">
+      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-10 sm:py-8 space-y-5 sm:space-y-6">
         {/* Pipeline */}
         <section className="rise-in card-shadow bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-6">
           <PipelineStepper activeStep={activeStep} />
-          <RecordOutcomeForm onRecorded={loadLedger} />
         </section>
 
         {/* Delay alert */}
@@ -247,8 +245,14 @@ export default function DashboardPage() {
           </div>
         )}
         {error && (
-          <div className="rise-in bg-[var(--danger-soft)] border border-[var(--danger)]/30 rounded-xl p-4">
+          <div className="rise-in bg-[var(--danger-soft)] border border-[var(--danger)]/30 rounded-xl p-4 flex items-center justify-between gap-3">
             <p className="text-sm font-medium text-[var(--danger)]">{error}</p>
+            <button
+              onClick={() => setError(null)}
+              className="text-xs font-mono text-[var(--danger)] underline shrink-0"
+            >
+              Dismiss
+            </button>
           </div>
         )}
 
@@ -326,10 +330,14 @@ export default function DashboardPage() {
           </div>
 
           {loadingLedger ? (
-            <p className="text-sm text-[var(--ink-soft)]">Loading evaluated decisions…</p>
+            <div className="space-y-2 animate-pulse">
+              <div className="h-4 bg-[var(--line)] rounded w-3/4" />
+              <div className="h-4 bg-[var(--line)] rounded w-1/2" />
+              <div className="h-4 bg-[var(--line)] rounded w-2/3" />
+            </div>
           ) : evaluated.length === 0 ? (
             <p className="text-sm text-[var(--ink-soft)]">
-              No outcomes recorded yet. Once a decisions real-world cost is known, it appears here compared against the original prediction.
+              No outcomes recorded yet. Once a decision&apos;s real-world cost is known, it appears here compared against the original prediction.
             </p>
           ) : (
             <div className="overflow-x-auto">
@@ -369,6 +377,8 @@ export default function DashboardPage() {
               </table>
             </div>
           )}
+
+          <RecordOutcomeForm onRecorded={loadLedger} />
         </section>
       </main>
     </div>

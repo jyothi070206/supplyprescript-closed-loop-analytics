@@ -115,3 +115,8 @@ case, distinct from the agentic-AI focus of Project 1.
   documents against the brief's requirements — Week 1 and Week 2 
   (project brief terms) are now fully documented and verified ahead 
   of deployment.
+- **Day 13**: Refine & Polish — added loading skeletons for the 
+  Decision ROI table, a dismissible error banner, and a full mobile 
+  responsiveness pass (header sizing, pipeline stepper labels, 
+  padding). Verified the dashboard renders cleanly on mobile viewport 
+  widths, ready for public deployment.
