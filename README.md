@@ -125,3 +125,8 @@ case, distinct from the agentic-AI focus of Project 1.
   variable. Verified the live health check and Swagger docs both work 
   at the public URL. This is the real backend the deployed frontend 
   will call in Day 15.
+- **Day 15**: Deployed the Next.js frontend live on Vercel, connected 
+  to the live Render backend via environment variable. The full stack 
+  — frontend, backend, and database — is now publicly accessible at 
+  one live URL, with Execute Decision and Decision ROI verified 
+  working end to end in production.
