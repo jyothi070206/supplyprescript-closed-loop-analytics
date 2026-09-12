@@ -120,3 +120,8 @@ case, distinct from the agentic-AI focus of Project 1.
   responsiveness pass (header sizing, pipeline stepper labels, 
   padding). Verified the dashboard renders cleanly on mobile viewport 
   widths, ready for public deployment.
+- **Day 14**: Deployed the FastAPI backend live on Render (free tier), 
+  connected to the existing Neon PostgreSQL database via environment 
+  variable. Verified the live health check and Swagger docs both work 
+  at the public URL. This is the real backend the deployed frontend 
+  will call in Day 15.
