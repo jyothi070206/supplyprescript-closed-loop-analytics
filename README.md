@@ -130,3 +130,4 @@ case, distinct from the agentic-AI focus of Project 1.
   — frontend, backend, and database — is now publicly accessible at 
   one live URL, with Execute Decision and Decision ROI verified 
   working end to end in production.
+- **Day 16**: consolidated Final Review package (proof index, summary, live links)
