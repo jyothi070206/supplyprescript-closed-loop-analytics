@@ -106,7 +106,7 @@ case, distinct from the agentic-AI focus of Project 1.
   Decision ROI table refreshes automatically after each recorded 
   outcome.   
 
-### Week 2
+### Week 3
 
 - **Day 12**: Ran a full end-to-end system test across every component 
   (predictive model, prescriptive solver, optimization audit, backend 
