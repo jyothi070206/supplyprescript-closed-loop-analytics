@@ -132,3 +132,11 @@ case, distinct from the agentic-AI focus of Project 1.
   working end to end in production.
 - **Day 16**: consolidated Final Review package (proof index, summary, live links)
 - **Day 17**:  Final Review readiness check - live demo verified, checklist created
+
+### Week 3
+
+- **Day 18**: Buffer day — re-verified the live deployment fresh in 
+  an incognito window (page load, Execute Decision, Record Outcome, 
+  Decision ROI all confirmed working). Added a small trust signal 
+  near the Decision ROI table clarifying the data is live, not 
+  hardcoded. No deployment issues found.
