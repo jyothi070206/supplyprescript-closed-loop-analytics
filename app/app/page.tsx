@@ -1,386 +1,109 @@
 'use client';
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
-type Prescription = {
-  id: string;
-  action: string;
-  cost: number;
-  timeSaved: number;
-  speedLabel: string;
-  costPerDaySaved: number | null;
-};
-
-const PRESCRIPTIONS: Prescription[] = [
-  { id: "A", action: "Air Freight", cost: 15000, timeSaved: 14, speedLabel: "Fastest", costPerDaySaved: 1071.43 },
-  { id: "B", action: "Secondary Supplier (10% premium)", cost: 5000, timeSaved: 10, speedLabel: "Moderate", costPerDaySaved: 500 },
-  { id: "C", action: "Delay Final Product Launch", cost: 0, timeSaved: 0, speedLabel: "Slowest", costPerDaySaved: null },
+const optionData = [
+  { name: 'Air Freight', cost: 15000, timeSaved: 14 },
+  { name: 'Secondary Supplier', cost: 5000, timeSaved: 10 },
+  { name: 'Delay Launch', cost: 0, timeSaved: 0 },
 ];
 
-const bestValueId = PRESCRIPTIONS
-  .filter((p) => p.costPerDaySaved !== null)
-  .sort((a, b) => (a.costPerDaySaved! - b.costPerDaySaved!))[0]?.id;
+const STEPS = [
+  { n: '01', title: 'Predict', text: 'An XGBoost model flags shipments likely to run late, based on supplier, distance, and seasonality.' },
+  { n: '02', title: 'Prescribe', text: 'A budget-audited optimizer proposes 3 alternative actions, each with real cost and time trade-offs.' },
+  { n: '03', title: 'Execute', text: 'An operator picks one — the decision is written permanently into a live database.' },
+  { n: '04', title: 'Evaluate', text: 'Once the real outcome is known, it\u2019s compared against the prediction, and the model learns from the gap.' },
+];
 
-const PIPELINE = ["Predicted", "Prescribed", "Executed", "Evaluated"];
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
-
-type EvaluatedDecision = {
-  decision_id: number;
-  action: string;
-  predicted_cost: number;
-  actual_cost: number;
-  discrepancy: number;
-  accurate_within_10pct: boolean;
-};
-
-function PipelineStepper({ activeStep }: { activeStep: number }) {
-  return (
-    <div className="flex items-center">
-      {PIPELINE.map((stage, i) => (
-        <div key={stage} className="flex items-center flex-1 last:flex-none">
-          <div className="flex flex-col items-center gap-1.5">
-            <div
-              className={`h-8 w-8 rounded-full flex items-center justify-center font-mono text-xs font-medium ${
-                i <= activeStep
-                  ? "bg-[var(--amber)] text-white"
-                  : "bg-white border border-[var(--line)] text-[var(--ink-soft)]"
-              }`}
-            >
-              {i + 1}
-            </div>
-            <span
-              className={`text-[10px] sm:text-xs font-medium text-center ${
-                i <= activeStep ? "text-[var(--ink)]" : "text-[var(--ink-soft)]"
-              }`}
-            >
-              {stage}
-            </span>
-          </div>
-          {i < PIPELINE.length - 1 && (
-            <div
-              className={`h-px flex-1 mx-2 mb-5 ${
-                i < activeStep ? "bg-[var(--amber)]" : "bg-[var(--line)]"
-              }`}
-            />
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function RecordOutcomeForm({ onRecorded }: { onRecorded: () => void }) {
-  const [decisionId, setDecisionId] = useState("");
-  const [actualCost, setActualCost] = useState("");
-  const [status, setStatus] = useState<string | null>(null);
-  const [submitting, setSubmitting] = useState(false);
-
-  const submit = async () => {
-    if (!decisionId || !actualCost) {
-      setStatus("Enter both a decision ID and the actual cost.");
-      return;
-    }
-    setSubmitting(true);
-    setStatus(null);
-    try {
-      const res = await fetch(`${API_URL}/record-outcome`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          decision_id: Number(decisionId),
-          actual_cost_usd: Number(actualCost),
-        }),
-      });
-      if (!res.ok) throw new Error();
-      const data = await res.json();
-      setStatus(
-        `Outcome recorded — discrepancy: ${data.discrepancy >= 0 ? "+" : ""}$${data.discrepancy.toLocaleString()}`
-      );
-      setDecisionId("");
-      setActualCost("");
-      onRecorded();
-    } catch {
-      setStatus("Could not record outcome. Check the decision ID exists.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  return (
-    <div className="border-t border-[var(--line)] pt-4 mt-4">
-      <p className="text-sm font-medium text-[var(--ink)] mb-2">
-        Record a real-world outcome
-      </p>
-      <p className="text-xs text-[var(--ink-soft)] mb-3">
-        When the actual cost of an executed decision becomes known, enter it here to close the loop.
-      </p>
-      <div className="flex flex-wrap gap-2 items-center">
-        <input
-          type="number"
-          placeholder="Decision ID"
-          value={decisionId}
-          onChange={(e) => setDecisionId(e.target.value)}
-          className="w-32 border border-[var(--line)] rounded-lg px-3 py-2 text-sm"
-        />
-        <input
-          type="number"
-          placeholder="Actual cost (USD)"
-          value={actualCost}
-          onChange={(e) => setActualCost(e.target.value)}
-          className="w-40 border border-[var(--line)] rounded-lg px-3 py-2 text-sm"
-        />
-        <button
-          onClick={submit}
-          disabled={submitting}
-          className="bg-[var(--steel)] text-white text-sm rounded-lg px-4 py-2 hover:opacity-90 disabled:opacity-50"
-        >
-          {submitting ? "Recording…" : "Record outcome"}
-        </button>
-      </div>
-      {status && <p className="text-xs text-[var(--ink-soft)] mt-2">{status}</p>}
-    </div>
-  );
-}
-
-export default function DashboardPage() {
-  const [executing, setExecuting] = useState<string | null>(null);
-  const [confirmation, setConfirmation] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [activeStep, setActiveStep] = useState(1);
-  const [evaluated, setEvaluated] = useState<EvaluatedDecision[]>([]);
-  const [loadingLedger, setLoadingLedger] = useState(true);
-
-  const loadLedger = async () => {
-    setLoadingLedger(true);
-    try {
-      const res = await fetch(`${API_URL}/closed-loop-summary`);
-      const data = await res.json();
-      setEvaluated(data.evaluated_decisions || []);
-    } catch {
-      setEvaluated([]);
-    } finally {
-      setLoadingLedger(false);
-    }
-  };
-
-  useEffect(() => {
-    loadLedger();
-  }, []);
-
-  const executeDecision = async (p: Prescription) => {
-    setExecuting(p.id);
-    setConfirmation(null);
-    setError(null);
-    try {
-      const res = await fetch(`${API_URL}/execute-decision`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          shipment_id: 1,
-          predicted_delay_days: 14,
-          chosen_option: p.id,
-          chosen_action: p.action,
-          cost_usd: p.cost,
-          time_saved_days: p.timeSaved,
-        }),
-      });
-      if (!res.ok) throw new Error(`Server responded ${res.status}`);
-      const data = await res.json();
-      setConfirmation(`Decision #${data.decision_id} recorded at ${data.executed_at}`);
-      setActiveStep(2);
-      loadLedger();
-    } catch {
-      setError("Could not reach the backend. Start uvicorn on port 8000 and try again.");
-    } finally {
-      setExecuting(null);
-    }
-  };
-
-  const accurateCount = evaluated.filter((e) => e.accurate_within_10pct).length;
-  const accuracyRate = evaluated.length > 0 ? Math.round((accurateCount / evaluated.length) * 100) : null;
-
+export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Status strip */}
       <div className="bg-[var(--ink)] px-6 py-1.5 sm:px-10">
         <div className="mx-auto max-w-6xl flex items-center justify-between">
           <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">
             Operations Control
           </span>
-          <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--amber)]">
-            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-[var(--amber)]" />
-            Monitoring Shipment #1
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--amber)]">
+            Closed-Loop Prescriptive Analytics
           </span>
         </div>
       </div>
 
-      {/* Header */}
       <header className="bg-[var(--surface)] border-b border-[var(--line)] px-6 py-5 sm:px-10">
-        <div className="mx-auto max-w-6xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-soft)]">
-            Closed-Loop Prescriptive Analytics
-          </p>
-          <h1 className="font-display text-2xl sm:text-3xl font-semibold text-[var(--ink)] mt-1">
+        <div className="mx-auto max-w-6xl flex items-center justify-between">
+          <h1 className="font-display text-2xl sm:text-3xl font-semibold text-[var(--ink)]">
             SupplyPrescript
           </h1>
+          <Link
+            href="/dashboard"
+            className="bg-[var(--ink)] text-white text-sm rounded-lg px-5 py-2.5 hover:bg-[var(--steel)] transition"
+          >
+            Open Dashboard →
+          </Link>
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-10 sm:py-8 space-y-5 sm:space-y-6">
-        {/* Pipeline */}
-        <section className="rise-in card-shadow bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-6">
-          <PipelineStepper activeStep={activeStep} />
+      <main className="mx-auto max-w-6xl px-4 py-10 sm:px-10 sm:py-14">
+        {/* Hero */}
+        <section className="rise-in">
+          <h2 className="font-display text-3xl sm:text-4xl font-semibold text-[var(--ink)] max-w-2xl leading-tight">
+            Predicts the delay. Prescribes the fix. Learns from the outcome.
+          </h2>
+          <p className="mt-4 max-w-xl text-[var(--ink-soft)]">
+            Predictive analytics tell you a shipment will be late. SupplyPrescript
+            goes further — it recommends cost-audited alternatives, tracks what
+            you decide, and checks its own advice against reality.
+          </p>
+          <Link
+            href="/dashboard"
+            className="mt-6 inline-block bg-[var(--amber)] text-white text-sm font-medium rounded-lg px-6 py-3 hover:opacity-90 transition"
+          >
+            See it in action →
+          </Link>
         </section>
 
-        {/* Delay alert */}
-        <div className="rise-in bg-[var(--amber-soft)] border border-[var(--amber)]/30 rounded-xl p-4">
-          <p className="text-sm font-medium text-[#8a4319]">
-            Predicted delay: 14 days — microchip shipment, Supplier A, Asia route
+        {/* How it works */}
+        <section className="mt-16">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-soft)] mb-4">
+            How it works
           </p>
-        </div>
-
-        {confirmation && (
-          <div className="rise-in bg-[var(--success-soft)] border border-[var(--success)]/30 rounded-xl p-4">
-            <p className="text-sm font-medium text-[var(--success)]">{confirmation}</p>
-          </div>
-        )}
-        {error && (
-          <div className="rise-in bg-[var(--danger-soft)] border border-[var(--danger)]/30 rounded-xl p-4 flex items-center justify-between gap-3">
-            <p className="text-sm font-medium text-[var(--danger)]">{error}</p>
-            <button
-              onClick={() => setError(null)}
-              className="text-xs font-mono text-[var(--danger)] underline shrink-0"
-            >
-              Dismiss
-            </button>
-          </div>
-        )}
-
-        {/* Prescriptions */}
-        <section>
-          <h2 className="font-display text-lg font-semibold text-[var(--ink)] mb-3">
-            Recommended actions
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {PRESCRIPTIONS.map((p) => (
-              <div
-                key={p.id}
-                className={`rise-in card-shadow bg-[var(--surface)] rounded-2xl p-5 flex flex-col justify-between ${
-                  p.id === bestValueId ? "border-2 border-[var(--amber)]" : "border border-[var(--line)]"
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-[10px] text-[var(--ink-soft)]">OPTION {p.id}</span>
-                    <div className="flex gap-1.5">
-                      {p.id === bestValueId && (
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--amber)] text-white">
-                          Best value
-                        </span>
-                      )}
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--steel-soft)] text-[var(--steel)]">
-                        {p.speedLabel}
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="font-medium text-[var(--ink)] mb-3">{p.action}</h3>
-                  <div className="space-y-1 text-sm">
-                    <p className="text-[var(--ink-soft)]">
-                      Cost <span className="font-mono text-[var(--ink)]">${p.cost.toLocaleString()}</span>
-                    </p>
-                    <p className="text-[var(--ink-soft)]">
-                      Time saved <span className="font-mono text-[var(--ink)]">{p.timeSaved}d</span>
-                    </p>
-                    {p.costPerDaySaved !== null && (
-                      <p className="font-mono text-xs text-[var(--ink-soft)]">
-                        ${p.costPerDaySaved.toLocaleString()}/day saved
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <button
-                  onClick={() => executeDecision(p)}
-                  disabled={executing !== null}
-                  className="mt-4 bg-[var(--ink)] text-white text-sm rounded-lg py-2.5 hover:bg-[var(--steel)] transition disabled:opacity-50"
-                >
-                  {executing === p.id ? "Executing…" : "Execute decision"}
-                </button>
+          <div className="grid gap-4 sm:grid-cols-4">
+            {STEPS.map((s) => (
+              <div key={s.n} className="rise-in card-shadow bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-5">
+                <p className="font-mono text-xs text-[var(--amber)] mb-1">{s.n}</p>
+                <p className="font-display font-semibold text-[var(--ink)] mb-1.5">{s.title}</p>
+                <p className="text-xs text-[var(--ink-soft)] leading-relaxed">{s.text}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Decision ROI / Closed-Loop Ledger */}
-        <section className="rise-in card-shadow bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-soft)]">
-                Feedback loop
-              </p>
-              <h2 className="font-display text-lg font-semibold text-[var(--ink)]">
-                Decision ROI
-              </h2>
-            </div>
-            {accuracyRate !== null && (
-              <div className="text-right">
-                <p className="font-mono text-2xl font-semibold text-[var(--ink)]">{accuracyRate}%</p>
-                <p className="text-xs text-[var(--ink-soft)]">accurate within 10%</p>
-              </div>
-            )}
-          </div>
-
-          {loadingLedger ? (
-            <div className="space-y-2 animate-pulse">
-              <div className="h-4 bg-[var(--line)] rounded w-3/4" />
-              <div className="h-4 bg-[var(--line)] rounded w-1/2" />
-              <div className="h-4 bg-[var(--line)] rounded w-2/3" />
-            </div>
-          ) : evaluated.length === 0 ? (
-            <p className="text-sm text-[var(--ink-soft)]">
-              No outcomes recorded yet. Once a decision&apos;s real-world cost is known, it appears here compared against the original prediction.
-            </p>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-[var(--ink-soft)] border-b border-[var(--line)]">
-                    <th className="py-2 pr-4 font-normal">Action</th>
-                    <th className="py-2 pr-4 font-normal">Predicted</th>
-                    <th className="py-2 pr-4 font-normal">Actual</th>
-                    <th className="py-2 pr-4 font-normal">Discrepancy</th>
-                    <th className="py-2 font-normal">Outcome</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {evaluated.map((e) => (
-                    <tr key={e.decision_id} className="border-b border-[var(--line)] last:border-0">
-                      <td className="py-2.5 pr-4 text-[var(--ink)]">{e.action}</td>
-                      <td className="py-2.5 pr-4 font-mono text-[var(--ink)]">${e.predicted_cost.toLocaleString()}</td>
-                      <td className="py-2.5 pr-4 font-mono text-[var(--ink)]">${e.actual_cost.toLocaleString()}</td>
-                      <td className="py-2.5 pr-4 font-mono text-[var(--ink)]">
-                        {e.discrepancy >= 0 ? "+" : ""}${e.discrepancy.toLocaleString()}
-                      </td>
-                      <td className="py-2.5">
-                        <span
-                          className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
-                            e.accurate_within_10pct
-                              ? "bg-[var(--success-soft)] text-[var(--success)]"
-                              : "bg-[var(--danger-soft)] text-[var(--danger)]"
-                          }`}
-                        >
-                          {e.accurate_within_10pct ? "On target" : "Off target"}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-
-          <RecordOutcomeForm onRecorded={loadLedger} />
+        {/* Preview chart */}
+        <section className="mt-16 rise-in card-shadow bg-[var(--surface)] border border-[var(--line)] rounded-2xl p-6">
+          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-soft)] mb-1">
+            Sample scenario
+          </p>
+          <h3 className="font-display text-lg font-semibold text-[var(--ink)] mb-4">
+            Cost vs. time saved across 3 prescribed options
+          </h3>
+          <ResponsiveContainer width="100%" height={260}>
+            <BarChart data={optionData}>
+              <CartesianGrid strokeDasharray="3 6" stroke="var(--line)" vertical={false} />
+              <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ink-soft)' }} axisLine={{ stroke: 'var(--line)' }} tickLine={false} />
+              <YAxis tick={{ fontSize: 12, fill: 'var(--ink-soft)' }} axisLine={false} tickLine={false} />
+              <Tooltip contentStyle={{ fontFamily: 'var(--font-mono)', fontSize: 12, borderColor: 'var(--line)', borderRadius: 8 }} />
+              <Bar dataKey="cost" name="Cost ($)" fill="var(--amber)" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="timeSaved" name="Time saved (days)" fill="var(--steel)" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </section>
       </main>
+
+      <footer className="border-t border-[var(--line)] px-6 py-6 text-center sm:px-10">
+        <p className="text-xs text-[var(--ink-soft)]">
+          Built with Next.js, FastAPI, XGBoost, SciPy, and PostgreSQL.
+        </p>
+      </footer>
     </div>
   );
 }

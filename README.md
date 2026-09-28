@@ -140,3 +140,34 @@ case, distinct from the agentic-AI focus of Project 1.
   Decision ROI all confirmed working). Added a small trust signal 
   near the Decision ROI table clarifying the data is live, not 
   hardcoded. No deployment issues found.
+  
+- **Day 19**: Drafted the Project Report (.docx) covering the abstract,
+  problem statement, use case with the three prescribed options,
+  architecture, week-wise implementation summary, tech stack, verification
+  and proof sections, and conclusion. It will be uploaded to Google Drive
+  once the live links are filled in.
+
+- **Day 20**: Restructured the web application into two pages: a Home page
+  (problem overview, four-step "how it works" flow, sample cost-vs-time
+  chart) and a Dashboard page (the working operations console). Added
+  Recharts visualizations, including a cost vs. time-saved comparison and
+  a predicted vs. actual cost chart in the Decision ROI section. The
+  closed-loop pipeline stepper now shows all four stages active on load.
+
+- **Day 21**: Prepared for the Week 1 + Week 2 project review by writing a
+  demo script that matches each talking point to something on screen
+  (live model training run, optimization audit run, Execute Decision click,
+  database write confirmation). Fixed several front-end issues: added the
+  missing 'use client' directive on the Home page (Recharts requirement),
+  added a Home link on the dashboard for navigation, and configured
+  allowedDevOrigins so the dev server works over the local network.
+
+- **Day 22**: Verified the full production stack end to end: Render backend
+  (/closed-loop-summary confirmed reading from Neon), Vercel environment
+  variable (NEXT_PUBLIC_API_URL) pointing to the live API, and redeployed
+  the frontend with the new pages. Confirmed Execute Decision and Decision
+  ROI work on the live site.
+
+- **Day 23**: Final documentation pass: updated PROOF_INDEX.md and
+  final_review_checklist.md with the live links and confirmed the commit
+  history covers each day. Repository is ready for final review.
